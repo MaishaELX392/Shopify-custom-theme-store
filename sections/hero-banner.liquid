@@ -1,0 +1,318 @@
+{{ 'hero-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-banner" style="
+    background: {{ section.settings.background }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  ">
+  <div class="page-width">
+
+    <div class="hero-banner__wrapper">
+
+      <!-- Left Content -->
+      <div class="hero-banner__content">
+
+        {% for block in section.blocks %}
+
+        {% case block.type %}
+
+        {% when 'tag' %}
+        <div class="hero-banner__tag" {{ block.shopify_attributes }}>
+          {{ block.settings.text }}
+        </div>
+
+        {% when 'heading' %}
+        <h1 class="hero-banner__heading" {{ block.shopify_attributes }}>
+          {{ block.settings.heading }}
+        </h1>
+
+        {% when 'description' %}
+        <div class="hero-banner__description" {{ block.shopify_attributes }}>
+          {{ block.settings.description }}
+        </div>
+
+        {% when 'bullet' %}
+        <div class="hero-banner__bullet" {{ block.shopify_attributes }}>
+          <span class="hero-banner__check">✓</span>
+          <span>{{ block.settings.text }}</span>
+        </div>
+
+        {% when 'button' %}
+        <a href="{{ block.settings.link }}" class="hero-banner__button" {{ block.shopify_attributes }}>
+          {{ block.settings.label }}
+        </a>
+
+        {% endcase %}
+
+        {% endfor %}
+
+      </div>
+
+      <!-- Right Image -->
+      <div class="hero-banner__image">
+
+        {% if section.settings.image != blank %}
+
+        {{
+        section.settings.image
+        | image_url: width: 900
+        | image_tag:
+        class: 'hero-banner__image-img',
+        loading: 'lazy',
+        alt: section.settings.image.alt
+        }}
+
+        {% else %}
+
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom Features -->
+  <div class="hero-banner__features">
+
+    <div class="page-width">
+
+      <div class="hero-banner__features-wrapper">
+
+        {% for block in section.blocks %}
+
+        {% if block.type == 'feature' %}
+
+        <div class="hero-banner__feature" {{ block.shopify_attributes }}>
+
+          {% if block.settings.icon != blank %}
+
+          {{
+          block.settings.icon
+          | image_url: width: 50
+          | image_tag:
+          class: 'hero-banner__feature-icon',
+          loading: 'lazy',
+          alt: block.settings.title
+          }}
+
+          {% endif %}
+
+          <div>
+            <strong>{{ block.settings.title }}</strong>
+            <p>{{ block.settings.subtitle }}</p>
+          </div>
+
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+"name": "Hero Banner",
+"settings": [
+{
+"type": "color",
+"id": "background",
+"label": "Background",
+"default": "#EEF7F3"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Hero Image"
+},
+{
+"type": "range",
+"id": "padding_top",
+"label": "Padding Top",
+"min": 0,
+"max": 120,
+"step": 4,
+"default": 60
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"label": "Padding Bottom",
+"min": 0,
+"max": 120,
+"step": 4,
+"default": 60
+}
+],
+"blocks": [
+{
+"type": "tag",
+"name": "Tag",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Tag",
+"default": "Science-Backed Hangover Relief"
+}
+]
+},
+{
+"type": "heading",
+"name": "Heading",
+"limit": 1,
+"settings": [
+{
+"type": "inline_richtext",
+"id": "heading",
+"label": "Heading",
+"default": "Your Personal Bodyguard... But For Hangovers"
+}
+]
+},
+{
+"type": "description",
+"name": "Description",
+"limit": 1,
+"settings": [
+{
+"type": "richtext",
+"id": "description",
+"label": "Description",
+"default": "<p>Hangover patches that deliver vitamins and nutrients while you sleep. Science-backed relief that actually works.</p>"
+}
+]
+},
+{
+"type": "bullet",
+"name": "Bullet",
+"limit": 10,
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Bullet",
+"default": "No Pills to swallow - 90% more effective"
+}
+]
+},
+{
+"type": "button",
+"name": "Button",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "label",
+"label": "Button Label",
+"default": "Shop Patches Now"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Button Link"
+}
+]
+},
+{
+"type": "feature",
+"name": "Bottom Feature",
+"limit": 4,
+"settings": [
+{
+"type": "image_picker",
+"id": "icon",
+"label": "Icon"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title",
+"default": "5 Free Patches"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "Subtitle",
+"default": "On orders $40+"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Hero Banner",
+"blocks": [
+{
+"type": "tag"
+},
+{
+"type": "heading"
+},
+{
+"type": "description"
+},
+{
+"type": "bullet",
+"settings": {
+"text": "No Pills to swallow - 90% more effective"
+}
+},
+{
+"type": "bullet",
+"settings": {
+"text": "100% transdermal absorption"
+}
+},
+{
+"type": "bullet",
+"settings": {
+"text": "Extended release formula"
+}
+},
+{
+"type": "button"
+},
+{
+"type": "feature",
+"settings": {
+"title": "5 Free Patches",
+"subtitle": "On orders $40+"
+}
+},
+{
+"type": "feature",
+"settings": {
+"title": "30-Day Guarantee",
+"subtitle": "Risk-free returns"
+}
+},
+{
+"type": "feature",
+"settings": {
+"title": "FDA Registered",
+"subtitle": "Certified Facility"
+}
+},
+{
+"type": "feature",
+"settings": {
+"title": "All Natural",
+"subtitle": "Zero Calories & Sugar"
+}
+}
+]
+}
+]
+}
+{% endschema %}

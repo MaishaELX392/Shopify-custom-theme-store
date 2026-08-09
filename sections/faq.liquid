@@ -1,0 +1,154 @@
+{{ 'faq.css' | asset_url | stylesheet_tag }}
+
+<section class="faq-section">
+  <div class="faq-section__container">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="faq-section__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="faq-section__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="faq-section__list">
+
+        {% for block in section.blocks %}
+          <details
+            class="faq-item"
+            {{ block.shopify_attributes }}
+          >
+            <summary class="faq-item__question">
+              <span>
+                {{ block.settings.question }}
+              </span>
+
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </summary>
+
+            <div class="faq-item__answer">
+              {{ block.settings.answer }}
+            </div>
+          </details>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "GOT QUESTIONS?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long does it take for the patch to work?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Enter your answer here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take for the patch to work?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use multiple patches at once?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Are there any side effects?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Will this work if I drink heavily?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I shower with the patch on?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

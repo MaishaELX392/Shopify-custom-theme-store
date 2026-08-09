@@ -1,0 +1,497 @@
+{{ 'pack-collection.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  #shopify-section-{{ section.id }} .pack-collection {
+    background-color: {{ section.settings.background_color }};
+  }
+{% endstyle %}
+
+
+<section class="pack-collection">
+
+  <div class="pack-collection__container">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="pack-collection__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+    {% endif %}
+
+
+    {% if section.settings.heading != blank %}
+      <h2 class="pack-collection__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+
+    {% if section.settings.description != blank %}
+      <div class="pack-collection__description">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+
+    {% if section.blocks.size > 0 %}
+
+      <div
+        class="
+          pack-collection__grid
+          pack-collection__grid--desktop-{{ section.settings.desktop_columns }}
+          pack-collection__grid--mobile-{{ section.settings.mobile_columns }}
+        "
+      >
+
+        {% for block in section.blocks %}
+
+          {% assign pack = block.settings.pack %}
+
+          {% if pack != blank %}
+
+            <article
+              class="pack-card"
+              {{ block.shopify_attributes }}
+            >
+
+              {% comment %}
+                ----------------------------------------
+                PACK LINK
+                ----------------------------------------
+              {% endcomment %}
+
+              {% assign pack_link = blank %}
+
+              {% if pack.button_link.value != blank %}
+                {% assign pack_link = pack.button_link.value.url %}
+              {% elsif pack.button_url.value != blank %}
+                {% assign pack_link = pack.button_url.value %}
+              {% endif %}
+
+
+              {% comment %}
+                ----------------------------------------
+                IMAGE
+                ----------------------------------------
+              {% endcomment %}
+
+              {% if section.settings.show_image and pack.image.value != blank %}
+
+                {% if pack_link != blank %}
+
+                  <a
+                    href="{{ pack_link }}"
+                    class="pack-card__image-link"
+                  >
+
+                    <div class="pack-card__image-wrapper">
+
+                      {{
+                        pack.image.value
+                        | image_url: width: 700
+                        | image_tag:
+                          class: 'pack-card__image',
+                          loading: 'lazy',
+                          alt: pack.title.value
+                      }}
+
+                    </div>
+
+                  </a>
+
+                {% else %}
+
+                  <div class="pack-card__image-wrapper">
+
+                    {{
+                      pack.image.value
+                      | image_url: width: 700
+                      | image_tag:
+                        class: 'pack-card__image',
+                        loading: 'lazy',
+                        alt: pack.title.value
+                    }}
+
+                  </div>
+
+                {% endif %}
+
+              {% endif %}
+
+
+              <div class="pack-card__content">
+
+                {% comment %}
+                  ----------------------------------------
+                  TITLE
+                  ----------------------------------------
+                {% endcomment %}
+
+                {% if pack.title.value != blank %}
+
+                  <h3 class="pack-card__title">
+                    {{ pack.title.value }}
+                  </h3>
+
+                {% endif %}
+
+
+                {% comment %}
+                  ----------------------------------------
+                  PACK SIZES
+                  ----------------------------------------
+                {% endcomment %}
+
+                {% if section.settings.show_pack_sizes and pack.pack_sizes.value != blank %}
+
+                  <p class="pack-card__sizes">
+                    {{ pack.pack_sizes.value }}
+                  </p>
+
+                {% endif %}
+
+
+                {% comment %}
+                  ----------------------------------------
+                  PRICE
+                  ----------------------------------------
+                {% endcomment %}
+
+                {% if section.settings.show_price and pack.price_text.value != blank %}
+
+                  <p class="pack-card__price">
+                    {{ pack.price_text.value }}
+                  </p>
+
+                {% endif %}
+
+
+                {% comment %}
+                  ----------------------------------------
+                  FEATURES
+                  ----------------------------------------
+                {% endcomment %}
+
+                {% if section.settings.show_features %}
+
+                  {% assign has_features = false %}
+
+                  {% if pack.feature_1.value != blank %}
+                    {% assign has_features = true %}
+                  {% endif %}
+
+                  {% if pack.feature_2.value != blank %}
+                    {% assign has_features = true %}
+                  {% endif %}
+
+                  {% if pack.feature_3.value != blank %}
+                    {% assign has_features = true %}
+                  {% endif %}
+
+
+                  {% if has_features %}
+
+                    <ul class="pack-card__features">
+
+                      {% if pack.feature_1.value != blank %}
+
+                        <li>
+                          <span
+                            class="pack-card__check"
+                            aria-hidden="true"
+                          >
+                            ✓
+                          </span>
+
+                          <span>
+                            {{ pack.feature_1.value }}
+                          </span>
+                        </li>
+
+                      {% endif %}
+
+
+                      {% if pack.feature_2.value != blank %}
+
+                        <li>
+                          <span
+                            class="pack-card__check"
+                            aria-hidden="true"
+                          >
+                            ✓
+                          </span>
+
+                          <span>
+                            {{ pack.feature_2.value }}
+                          </span>
+                        </li>
+
+                      {% endif %}
+
+
+                      {% if pack.feature_3.value != blank %}
+
+                        <li>
+                          <span
+                            class="pack-card__check"
+                            aria-hidden="true"
+                          >
+                            ✓
+                          </span>
+
+                          <span>
+                            {{ pack.feature_3.value }}
+                          </span>
+                        </li>
+
+                      {% endif %}
+
+                    </ul>
+
+                  {% endif %}
+
+                {% endif %}
+
+
+                {% comment %}
+                  ----------------------------------------
+                  BUTTON
+                  ----------------------------------------
+                {% endcomment %}
+
+                {% if section.settings.show_button and pack.button_text.value != blank %}
+
+                  {% if pack_link != blank %}
+
+                    <a
+                      href="{{ pack_link }}"
+                      class="pack-card__button"
+                    >
+                      {{ pack.button_text.value }}
+                    </a>
+
+                  {% else %}
+
+                    <span class="pack-card__button">
+                      {{ pack.button_text.value }}
+                    </span>
+
+                  {% endif %}
+
+                {% endif %}
+
+              </div>
+
+            </article>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    {% else %}
+
+      <div class="pack-collection__empty">
+        <p>
+          Add a Pack block and select a pack.
+        </p>
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Pack collection",
+  "max_blocks": 20,
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MAKING MEMORIES"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Choose Your Pack"
+    },
+
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "Stock up and save. 5 free patches on all orders over $40."
+    },
+
+
+    {
+      "type": "header",
+      "content": "Product information"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Show product image",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_pack_sizes",
+      "label": "Show pack sizes",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_features",
+      "label": "Show features",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "3"
+    },
+
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "1"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#DFF8FA"
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "pack",
+      "name": "Pack",
+
+      "settings": [
+
+        {
+          "type": "metaobject",
+          "id": "pack",
+          "label": "Select pack",
+          "metaobject_type": "pack"
+        }
+
+      ]
+    }
+
+  ],
+
+
+  "presets": [
+
+    {
+      "name": "Pack collection",
+
+      "blocks": [
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        },
+        {
+          "type": "pack"
+        }
+      ]
+    }
+
+  ]
+}
+{% endschema %}

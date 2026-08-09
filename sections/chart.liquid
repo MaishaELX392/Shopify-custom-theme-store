@@ -1,0 +1,421 @@
+{{ 'chart.css' | asset_url | stylesheet_tag }}
+
+<section class="comparison-chart" style="
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  ">
+  <div class="page-width">
+
+    <!-- Header -->
+    <div class="comparison-chart__header">
+
+      {% for block in section.blocks %}
+
+      {% case block.type %}
+
+      {% when 'tag' %}
+
+      <p class="comparison-chart__eyebrow" {{ block.shopify_attributes }}>
+        {{ block.settings.text }}
+      </p>
+
+      {% when 'heading' %}
+
+      <h2 class="comparison-chart__heading" {{ block.shopify_attributes }}>
+        {{ block.settings.heading }}
+      </h2>
+
+      {% when 'description' %}
+
+      <div class="comparison-chart__description" {{ block.shopify_attributes }}>
+        {{ block.settings.description }}
+      </div>
+
+      {% endcase %}
+
+      {% endfor %}
+
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-chart__table">
+
+      <!-- Table Header -->
+      {% for block in section.blocks %}
+
+      {% if block.type == 'table_header' %}
+
+      <div class="comparison-chart__row comparison-chart__row--heading" {{ block.shopify_attributes }}>
+
+        <div class="comparison-chart__feature"></div>
+
+        <div class="comparison-chart__column-title">
+          {{ block.settings.column_1 }}
+        </div>
+
+        <div class="comparison-chart__column-title">
+          {{ block.settings.column_2 }}
+        </div>
+
+        <div class="comparison-chart__column-title">
+          {{ block.settings.column_3 }}
+        </div>
+
+      </div>
+
+      {% endif %}
+
+      {% endfor %}
+
+      <!-- Comparison Rows -->
+      {% for block in section.blocks %}
+
+      {% if block.type == 'row' %}
+
+      <div class="comparison-chart__row" {{ block.shopify_attributes }}>
+
+        <!-- Feature -->
+        <div class="comparison-chart__feature">
+          {{ block.settings.feature }}
+        </div>
+
+        <!-- Column 1 -->
+        <div class="comparison-chart__cell">
+
+          {% if block.settings.party_patch == 'check' %}
+
+          <span class="check">✓</span>
+
+          {% else %}
+
+          <span class="cross">✕</span>
+
+          {% endif %}
+
+        </div>
+
+        <!-- Column 2 -->
+        <div class="comparison-chart__cell">
+
+          {% if block.settings.pills == 'check' %}
+
+          <span class="check">✓</span>
+
+          {% else %}
+
+          <span class="cross">✕</span>
+
+          {% endif %}
+
+        </div>
+
+        <!-- Column 3 -->
+        <div class="comparison-chart__cell">
+
+          {% if block.settings.drink_mix == 'check' %}
+
+          <span class="check">✓</span>
+
+          {% else %}
+
+          <span class="cross">✕</span>
+
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+    <!-- Button -->
+    <div class="comparison-chart__footer">
+
+      {% for block in section.blocks %}
+
+      {% if block.type == 'button' %}
+
+      <a href="{{ block.settings.link }}" class="comparison-chart__button" {{ block.shopify_attributes }}>
+        {{ block.settings.label }}
+      </a>
+
+      {% endif %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+
+{
+"name": "Comparison Chart",
+"settings": [
+{
+"type": "color",
+"id": "background_color",
+"label": "Background Color",
+"default": "#FFFFFF"
+},
+{
+"type": "range",
+"id": "padding_top",
+"label": "Padding Top",
+"min": 0,
+"max": 120,
+"step": 4,
+"unit": "px",
+"default": 80
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"label": "Padding Bottom",
+"min": 0,
+"max": 120,
+"step": 4,
+"unit": "px",
+"default": 80
+}
+],
+"blocks": [
+{
+"type": "tag",
+"name": "Tag",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "Tag",
+"default": "HOW WE STACK UP"
+}
+]
+},
+{
+"type": "heading",
+"name": "Heading",
+"limit": 1,
+"settings": [
+{
+"type": "inline_richtext",
+"id": "heading",
+"label": "Heading",
+"default": "Party Patch vs. The Alternatives"
+}
+]
+},
+{
+"type": "description",
+"name": "Description",
+"limit": 1,
+"settings": [
+{
+"type": "richtext",
+"id": "description",
+"label": "Description",
+"default": "<p>Party Patch is designed to work while you sleep - no pills, powders, or morning-after routine required.</p>"
+}
+]
+},
+{
+"type": "table_header",
+"name": "Table Header",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "column_1",
+"label": "First Column",
+"default": "Party Patch"
+},
+{
+"type": "text",
+"id": "column_2",
+"label": "Second Column",
+"default": "Pills"
+},
+{
+"type": "text",
+"id": "column_3",
+"label": "Third Column",
+"default": "Drink Mix"
+}
+]
+},
+{
+"type": "row",
+"name": "Comparison Row",
+"settings": [
+{
+"type": "text",
+"id": "feature",
+"label": "Feature",
+"default": "Works while you sleep"
+},
+{
+"type": "select",
+"id": "party_patch",
+"label": "Party Patch",
+"default": "check",
+"options": [
+{
+"value": "check",
+"label": "Check"
+},
+{
+"value": "cross",
+"label": "Cross"
+}
+]
+},
+{
+"type": "select",
+"id": "pills",
+"label": "Pills",
+"default": "cross",
+"options": [
+{
+"value": "check",
+"label": "Check"
+},
+{
+"value": "cross",
+"label": "Cross"
+}
+]
+},
+{
+"type": "select",
+"id": "drink_mix",
+"label": "Drink Mix",
+"default": "cross",
+"options": [
+{
+"value": "check",
+"label": "Check"
+},
+{
+"value": "cross",
+"label": "Cross"
+}
+]
+}
+]
+},
+{
+"type": "button",
+"name": "Button",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "label",
+"label": "Button Label",
+"default": "Shop Patches Now"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Button Link"
+}
+]
+}
+],
+
+
+
+"presets": [
+{
+"name": "Comparison Chart",
+"blocks": [
+{
+"type": "tag",
+"settings": {
+"text": "HOW WE STACK UP"
+}
+},
+{
+"type": "heading",
+"settings": {
+"heading": "Party Patch vs. The Alternatives"
+}
+},
+{
+"type": "description",
+"settings": {
+"description": "<p>Party Patch is designed to work while you sleep - no pills, powders, or morning-after routine required.</p>"
+}
+},
+{
+"type": "table_header",
+"settings": {
+"column_1": "Party Patch",
+"column_2": "Pills",
+"column_3": "Drink Mix"
+}
+},
+{
+"type": "row",
+"settings": {
+"feature": "Works while you sleep",
+"party_patch": "check",
+"pills": "cross",
+"drink_mix": "cross"
+}
+},
+{
+"type": "row",
+"settings": {
+"feature": "No pills to swallow",
+"party_patch": "check",
+"pills": "check",
+"drink_mix": "cross"
+}
+},
+{
+"type": "row",
+"settings": {
+"feature": "Bypasses the stomach",
+"party_patch": "check",
+"pills": "cross",
+"drink_mix": "cross"
+}
+},
+{
+"type": "row",
+"settings": {
+"feature": "Extended release",
+"party_patch": "check",
+"pills": "cross",
+"drink_mix": "cross"
+}
+},
+{
+"type": "row",
+"settings": {
+"feature": "Apply and forget",
+"party_patch": "check",
+"pills": "cross",
+"drink_mix": "check"
+}
+},
+{
+"type": "button",
+"settings": {
+"label": "Shop Patches Now",
+"link": "/collections/all"
+}
+}
+]
+}
+]
+}
+{% endschema %}

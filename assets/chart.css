@@ -1,0 +1,133 @@
+.comparison-chart {
+  padding: 100px 20px;
+  background: #fff;
+}
+
+.comparison-chart .page-width {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison-chart__eyebrow {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.comparison-chart__heading {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #20242b;
+  margin: 0;
+}
+
+.comparison-chart__text {
+  max-width: 560px;
+  margin: 20px auto 60px;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #404040;
+}
+
+.comparison-chart__table {
+  overflow: hidden;
+  border: 1px solid #d8d8d8;
+  border-radius: 24px;
+}
+
+.comparison-chart__row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+}
+
+.comparison-chart__row > div {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 16px;
+}
+
+.comparison-chart__row:last-child > div {
+  border-bottom: 0;
+}
+
+.comparison-chart__row > div:last-child {
+  border-right: 0;
+}
+
+.comparison-chart__row--head div {
+  font-weight: 700;
+}
+
+.comparison-chart__row div:first-child {
+  justify-content: flex-start;
+  font-weight: 600;
+  text-align: left;
+}
+
+.check,
+.cross {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.check {
+  background: #81e4ef;
+  color: #20242b;
+}
+
+.cross {
+  background: #e5e5e5;
+  color: #20242b;
+}
+
+.comparison-chart__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 18px 48px;
+  border-radius: 999px;
+  background: #f7c94a;
+  color: #20242b;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.comparison-chart__button:hover {
+  background: #efbd36;
+}
+
+@media (max-width: 768px) {
+  .comparison-chart__heading {
+    font-size: 36px;
+  }
+
+  .comparison-chart__text {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .comparison-chart__table {
+    overflow-x: auto;
+  }
+
+  .comparison-chart__row {
+    min-width: 700px;
+  }
+}

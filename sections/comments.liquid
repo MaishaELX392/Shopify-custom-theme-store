@@ -1,0 +1,183 @@
+{{ 'comments.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'comments.js' | asset_url }}" defer></script>
+
+{% assign comments_per_page = section.settings.comments_per_page %}
+{% assign total_comments = section.blocks.size %}
+{% assign total_pages = total_comments | plus: comments_per_page | minus: 1 | divided_by: comments_per_page %}
+
+<section class="comments-section comments-per-page-{{ comments_per_page }}" id="Comments-{{ section.id }}">
+  <div class="page-width">
+
+    {% if section.settings.heading != blank %}
+    <h2 class="comments-section__heading">
+      {{ section.settings.heading }}
+    </h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+    <div class="comments-section__description">
+      {{ section.settings.description }}
+    </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+
+    <div class="comments-slider">
+
+      <button type="button" class="comments-slider__button comments-slider__button--prev"
+        aria-label="Previous comments">
+        &#10094;
+      </button>
+
+      <div class="comments-slider__viewport">
+
+        <div class="comments-slider__track">
+
+          {% for page in (1..total_pages) %}
+
+          {% assign page_index = page | minus: 1 %}
+          {% assign page_offset = page_index | times: comments_per_page %}
+
+          <div class="comments-slider__page">
+
+            {% for block in section.blocks limit: comments_per_page offset: page_offset %}
+
+            <div class="comment-card" {{ block.shopify_attributes }}>
+
+              {% if block.settings.comment != blank %}
+              <div class="comment-card__text">
+                “{{ block.settings.comment }}”
+              </div>
+              {% endif %}
+
+              {% if block.settings.name != blank %}
+              <div class="comment-card__name">
+                {{ block.settings.name }}
+              </div>
+              {% endif %}
+
+              {% if block.settings.role != blank %}
+              <div class="comment-card__role">
+                {{ block.settings.role }}
+              </div>
+              {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+      <button type="button" class="comments-slider__button comments-slider__button--next" aria-label="Next comments">
+        &#10095;
+      </button>
+
+    </div>
+
+    {% if total_pages > 1 %}
+
+    <div class="comments-slider__pagination" aria-label="Comments pagination">
+
+      {% for page in (1..total_pages) %}
+
+      <button type="button" class="comments-slider__dot{% if forloop.first %} active{% endif %}"
+        aria-label="Go to comment page {{ page }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+        data-page="{{ forloop.index0 }}">
+      </button>
+
+      {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+    {% endif %}
+
+  </div>
+</section>
+
+
+{% schema %}
+{
+"name": "Customer Comments",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "What Our Customers Say"
+},
+{
+"type": "textarea",
+"id": "description",
+"label": "Description"
+},
+{
+"type": "range",
+"id": "comments_per_page",
+"label": "Comments per page",
+"min": 1,
+"max": 6,
+"step": 1,
+"default": 3
+}
+],
+"blocks": [
+{
+"type": "comment",
+"name": "Comment",
+"settings": [
+{
+"type": "textarea",
+"id": "comment",
+"label": "Comment",
+"default": "I absolutely love this product!"
+},
+{
+"type": "text",
+"id": "name",
+"label": "Customer name",
+"default": "Customer Name"
+},
+{
+"type": "text",
+"id": "role",
+"label": "Additional text",
+"default": "Verified Customer"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Customer Comments",
+"blocks": [
+{
+"type": "comment"
+},
+{
+"type": "comment"
+},
+{
+"type": "comment"
+},
+{
+"type": "comment"
+},
+{
+"type": "comment"
+},
+{
+"type": "comment"
+}
+]
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_LFhQDB": {
+      "type": "hero-banner",
+      "blocks": {
+        "tag_HeMeAK": {
+          "type": "tag",
+          "settings": {
+            "text": "Science-Backed Hangover Relief"
+          }
+        },
+        "heading_Jycpak": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Personal Bodyguard... But For Hangovers"
+          }
+        },
+        "description_QYMVe4": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Hangover patches that deliver vitamins and nutrients while you sleep. Science-backed relief that actuallyworks.</p>"
+          }
+        },
+        "bullet_A9QKjB": {
+          "type": "bullet",
+          "settings": {
+            "text": "No Pills to swallow - 90% more effective"
+          }
+        },
+        "bullet_DqLzXK": {
+          "type": "bullet",
+          "settings": {
+            "text": "100% transdermal absorption"
+          }
+        },
+        "bullet_nqL3wq": {
+          "type": "bullet",
+          "settings": {
+            "text": "Extended release formula"
+          }
+        },
+        "button_QUkzrx": {
+          "type": "button",
+          "settings": {
+            "label": "Shop Patches Now",
+            "link": ""
+          }
+        },
+        "feature_HBMenn": {
+          "type": "feature",
+          "settings": {
+            "title": "5 Free Patches",
+            "subtitle": "On orders $40+"
+          }
+        },
+        "feature_TxyJJC": {
+          "type": "feature",
+          "settings": {
+            "title": "30-Day Guarantee",
+            "subtitle": "Risk-free returns"
+          }
+        },
+        "feature_BK38Bq": {
+          "type": "feature",
+          "settings": {
+            "title": "FDA Registered",
+            "subtitle": "Certified facility"
+          }
+        },
+        "feature_fCCmhB": {
+          "type": "feature",
+          "settings": {
+            "title": "All Natural",
+            "subtitle": "Zero calories & sugar"
+          }
+        }
+      },
+      "block_order": [
+        "tag_HeMeAK",
+        "heading_Jycpak",
+        "description_QYMVe4",
+        "bullet_A9QKjB",
+        "bullet_DqLzXK",
+        "bullet_nqL3wq",
+        "button_QUkzrx",
+        "feature_HBMenn",
+        "feature_TxyJJC",
+        "feature_BK38Bq",
+        "feature_fCCmhB"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "background": "#eef7f3",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "chart_XYZ123": {
+      "type": "chart",
+      "blocks": {
+        "tag": {
+          "type": "tag",
+          "settings": {
+            "text": "HOW WE STACK UP"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Party Patch vs. The Alternatives"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Party Patch is designed to work while you sleep - no pills, powders, or morning-after routine required.</p>"
+          }
+        },
+        "table_header": {
+          "type": "table_header",
+          "settings": {
+            "column_1": "Party Patch",
+            "column_2": "Pills",
+            "column_3": "Drink Mix"
+          }
+        },
+        "row1": {
+          "type": "row",
+          "settings": {
+            "feature": "Works while you sleep",
+            "party_patch": "check",
+            "pills": "cross",
+            "drink_mix": "cross"
+          }
+        },
+        "row2": {
+          "type": "row",
+          "settings": {
+            "feature": "No pills to swallow",
+            "party_patch": "check",
+            "pills": "check",
+            "drink_mix": "cross"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Shop Patches Now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "tag",
+        "heading",
+        "description",
+        "table_header",
+        "row1",
+        "row2",
+        "button"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "comments_bUPVEW": {
+      "type": "comments",
+      "blocks": {
+        "comment_MDY7M3": {
+          "type": "comment",
+          "settings": {
+            "comment": "I absolutely love this product!",
+            "name": "Customer Name",
+            "role": "Verified Customer"
+          }
+        },
+        "comment_U4rAVi": {
+          "type": "comment",
+          "settings": {
+            "comment": "I absolutely love this product!",
+            "name": "Customer Name",
+            "role": "Verified Customer"
+          }
+        },
+        "comment_6zeyJR": {
+          "type": "comment",
+          "settings": {
+            "comment": "I absolutely love this product!",
+            "name": "Customer Name",
+            "role": "Verified Customer"
+          }
+        },
+        "comment_Dfj4xe": {
+          "type": "comment",
+          "settings": {
+            "comment": "I absolutely love this product!",
+            "name": "Customer Name",
+            "role": "Verified Customer"
+          }
+        },
+        "comment_wVFAFe": {
+          "type": "comment",
+          "settings": {
+            "comment": "I absolutely love this product!",
+            "name": "Customer Name",
+            "role": "Verified Customer"
+          }
+        }
+      },
+      "block_order": [
+        "comment_MDY7M3",
+        "comment_U4rAVi",
+        "comment_6zeyJR",
+        "comment_Dfj4xe",
+        "comment_wVFAFe"
+      ],
+      "name": "Customer Comments",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "description": "",
+        "comments_per_page": 3
+      }
+    },
+    "pack_collection_Ugyn6G": {
+      "type": "pack-collection",
+      "blocks": {
+        "pack_EQ9Yeb": {
+          "type": "pack",
+          "settings": {
+            "pack": "daily-wellness"
+          }
+        },
+        "pack_PfaJtV": {
+          "type": "pack",
+          "settings": {
+            "pack": "party-essentials"
+          }
+        },
+        "pack_YVQe84": {
+          "type": "pack",
+          "settings": {
+            "pack": "custom-creation"
+          }
+        }
+      },
+      "block_order": [
+        "pack_EQ9Yeb",
+        "pack_PfaJtV",
+        "pack_YVQe84"
+      ],
+      "name": "Pack collection",
+      "settings": {
+        "eyebrow": "MAKING MEMORIES",
+        "heading": "Choose Your Pack",
+        "description": "Stock up and save. 5 free patches on all orders over $40.",
+        "show_image": true,
+        "show_pack_sizes": true,
+        "show_price": true,
+        "show_features": true,
+        "show_button": true,
+        "desktop_columns": "3",
+        "mobile_columns": "1",
+        "background_color": "#EAFEFF"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_LFhQDB",
+    "chart_XYZ123",
+    "comments_bUPVEW",
+    "pack_collection_Ugyn6G"
+  ]
+}
