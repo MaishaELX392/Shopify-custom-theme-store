@@ -1,0 +1,188 @@
+.vitamin-powerhouse {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 58px 20px 52px;
+  background: var(--vitamin-bg);
+}
+
+.vitamin-powerhouse *,
+.vitamin-powerhouse *::before,
+.vitamin-powerhouse *::after {
+  box-sizing: border-box;
+}
+
+.vitamin-powerhouse__container {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.vitamin-powerhouse__eyebrow {
+  margin: 0 0 12px;
+  color: #20252b;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.vitamin-powerhouse__heading {
+  margin: 0;
+  color: #20252b;
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.vitamin-powerhouse__description {
+  max-width: 590px;
+  margin: 14px auto 22px;
+  color: #20252b;
+  font-size: 16px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.vitamin-powerhouse__description p {
+  margin: 0;
+}
+
+.vitamin-powerhouse__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+
+.vitamin-powerhouse__card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 88px;
+  padding: 14px 20px;
+  border: 1px solid #d6d6d6;
+  border-radius: 13px;
+  background: #ffffff;
+}
+
+.vitamin-powerhouse__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  min-width: 30px;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.vitamin-powerhouse__content {
+  min-width: 0;
+}
+
+.vitamin-powerhouse__title {
+  margin: 0 0 3px;
+  color: #20252b;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.vitamin-powerhouse__text {
+  color: #20252b;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.vitamin-powerhouse__button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.vitamin-powerhouse__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 255px;
+  min-height: 42px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  background: #70d9e7;
+  color: #20252b;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.vitamin-powerhouse__button:hover {
+  opacity: 0.85;
+}
+
+
+/* Tablet */
+
+@media screen and (max-width: 749px) {
+  .vitamin-powerhouse {
+    padding: 48px 16px 45px;
+  }
+
+  .vitamin-powerhouse__heading {
+    font-size: 32px;
+  }
+
+  .vitamin-powerhouse__description {
+    font-size: 15px;
+  }
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+  .vitamin-powerhouse {
+    padding: 42px 16px 40px;
+  }
+
+  .vitamin-powerhouse__container {
+    width: 100%;
+  }
+
+  .vitamin-powerhouse__heading {
+    font-size: 29px;
+    letter-spacing: -0.6px;
+  }
+
+  .vitamin-powerhouse__description {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .vitamin-powerhouse__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .vitamin-powerhouse__card {
+    min-height: 80px;
+    padding: 13px 16px;
+  }
+
+  .vitamin-powerhouse__title {
+    font-size: 14px;
+  }
+
+  .vitamin-powerhouse__text {
+    font-size: 13px;
+  }
+
+  .vitamin-powerhouse__button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

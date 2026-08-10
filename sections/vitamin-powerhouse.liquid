@@ -1,0 +1,154 @@
+{{ 'vitamin-powerhouse.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="vitamin-powerhouse"
+  style="--vitamin-bg: {{ section.settings.background_color }};"
+>
+  <div class="vitamin-powerhouse__container">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="vitamin-powerhouse__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="vitamin-powerhouse__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="vitamin-powerhouse__description">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="vitamin-powerhouse__grid">
+
+        {% for block in section.blocks %}
+          {% render 'vitamin-powerhouse-card', block: block %}
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_text != blank %}
+      <div class="vitamin-powerhouse__button-wrapper">
+        <a
+          class="vitamin-powerhouse__button"
+          href="{{ section.settings.button_link | default: '#' }}"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Vitamin Powerhouse",
+  "tag": "section",
+  "class": "vitamin-powerhouse-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHAT'S INSIDE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Vitamin Powerhouse"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#DDF8FB"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn More About the Science"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Vitamin B1 (Thiamine)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Helps process alcohol toxins and supports nervous system recovery"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vitamin Powerhouse",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B1 (Thiamine)",
+            "text": "Helps process alcohol toxins and supports nervous system recovery"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B5",
+            "text": "Converts alcohol to energy and supports your immune response"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B6",
+            "text": "Protects your immune system and cuts through next-day brain fog"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Taurine",
+            "text": "Balances electrolytes and fights nausea so you feel human again"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
