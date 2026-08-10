@@ -1,0 +1,42 @@
+<article
+  class="testimonial-card"
+  {{ block.shopify_attributes }}
+>
+
+  {% if block.settings.stars != blank %}
+    <div class="testimonial-card__stars">
+      {{ block.settings.stars }}
+    </div>
+  {% endif %}
+
+  {% if block.settings.review != blank %}
+    <div class="testimonial-card__review">
+      {{ block.settings.review }}
+    </div>
+  {% endif %}
+
+  <div class="testimonial-card__customer">
+
+    {% if block.settings.customer_image != blank %}
+      <div class="testimonial-card__image">
+        {{
+          block.settings.customer_image
+          | image_url: width: 120
+          | image_tag:
+            loading: 'lazy',
+            widths: '60, 80, 100, 120',
+            sizes: '60px',
+            alt: block.settings.customer_name
+        }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.customer_name != blank %}
+      <p class="testimonial-card__name">
+        {{ block.settings.customer_name }}
+      </p>
+    {% endif %}
+
+  </div>
+
+</article>

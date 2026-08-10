@@ -1,0 +1,173 @@
+{{ 'trusted-by-millions.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="trusted-by-millions"
+  style="--trusted-background: {{ section.settings.background_color }};"
+>
+  <div class="trusted-by-millions__container">
+
+    {% if section.settings.eyebrow != blank %}
+      <p class="trusted-by-millions__eyebrow">
+        {{ section.settings.eyebrow }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="trusted-by-millions__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="trusted-by-millions__rating">
+
+      {% if section.settings.stars != blank %}
+        <span class="trusted-by-millions__stars">
+          {{ section.settings.stars }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.rating != blank %}
+        <span class="trusted-by-millions__rating-number">
+          {{ section.settings.rating }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.review_count != blank %}
+        <span class="trusted-by-millions__review-count">
+          {{ section.settings.review_count }}
+        </span>
+      {% endif %}
+
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="trusted-by-millions__grid">
+
+        {% for block in section.blocks %}
+          {% render 'testimonial-card', block: block %}
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trusted by Millions",
+  "tag": "section",
+  "class": "trusted-by-millions-section",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "#WINTOMORROW WITH PARTY PATCH"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by Millions"
+    },
+    {
+      "type": "text",
+      "id": "stars",
+      "label": "Stars",
+      "default": "★★★★★"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count text",
+      "default": "stars from 500,000+ reviews"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "Review",
+          "default": "<p>I didn't know how these patches work, but <strong>they are amazing.</strong> I used to get hungover every time I drank, even when I only had a drink or two.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "customer_image",
+          "label": "Customer image"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer name",
+          "default": "Jennifer"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Trusted by Millions",
+      "settings": {
+        "eyebrow": "#WINTOMORROW WITH PARTY PATCH",
+        "heading": "Trusted by Millions",
+        "stars": "★★★★★",
+        "rating": "4.8",
+        "review_count": "stars from 500,000+ reviews",
+        "background_color": "#FFFFFF"
+      },
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p>I didn't know how these patches work, but <strong>they are amazing.</strong> I used to get hungover every time I drank, even when I only had a drink or two. <strong>I'll never drink without a patch again,</strong> with every penny.</p>",
+            "customer_name": "Jennifer"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p>Husband and I both in our 40s, tried these for a big party event. <strong>Woke up feeling great, these patches are very effective!</strong></p>",
+            "customer_name": "Johanna"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p><strong>This product really works.</strong> Drank a fifth of tequila the night before and <strong>no hangover or symptoms whatever.</strong> Good and bad. lmao. But it works!</p>",
+            "customer_name": "Markus"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
