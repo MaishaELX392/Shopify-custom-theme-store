@@ -271,7 +271,67 @@
         "show_button": true,
         "desktop_columns": "3",
         "mobile_columns": "1",
-        "background_color": "#EAFEFF"
+        "background_color": "#eafeff"
+      }
+    },
+    "faq_MDzFrb": {
+      "type": "faq",
+      "blocks": {
+        "faq_ApUX4e": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does it take for the patch to work?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        "faq_CbyByt": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use multiple patches at once?",
+            "answer": "<p>shopi</p>"
+          }
+        },
+        "faq_G7gFRn": {
+          "type": "faq",
+          "settings": {
+            "question": "Are there any side effects?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        "faq_rwer7Q": {
+          "type": "faq",
+          "settings": {
+            "question": "Will this work if I drink heavily?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        "faq_eanVRE": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I shower with the patch on?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        },
+        "faq_tVVNCd": {
+          "type": "faq",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>Enter your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_ApUX4e",
+        "faq_CbyByt",
+        "faq_G7gFRn",
+        "faq_rwer7Q",
+        "faq_eanVRE",
+        "faq_tVVNCd"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "eyebrow": "GOT QUESTIONS?",
+        "heading": "Frequently Asked Questions"
       }
     }
   },
@@ -279,6 +339,7 @@
     "hero_banner_LFhQDB",
     "chart_XYZ123",
     "comments_bUPVEW",
-    "pack_collection_Ugyn6G"
+    "pack_collection_Ugyn6G",
+    "faq_MDzFrb"
   ]
 }
