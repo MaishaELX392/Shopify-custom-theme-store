@@ -1,0 +1,313 @@
+.how-to-use {
+  width: 100%;
+  padding: 64px 20px 46px;
+  background: var(--how-to-use-background);
+}
+
+.how-to-use *,
+.how-to-use *::before,
+.how-to-use *::after {
+  box-sizing: border-box;
+}
+
+.how-to-use__container {
+  width: min(100%, 1340px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* LEFT SIDE */
+
+.how-to-use__content {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.how-to-use__eyebrow {
+  margin: 0 0 14px;
+  color: #20252b;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+}
+
+.how-to-use__heading {
+  margin: 0;
+  color: #20252b;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -1.1px;
+}
+
+.how-to-use__description {
+  max-width: 540px;
+  margin-top: 18px;
+  color: #20252b;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.how-to-use__description p {
+  margin: 0;
+}
+
+/* STEPS */
+
+.how-to-use__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.how-to-use__step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 94px;
+  padding: 14px 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.how-to-use__step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--how-to-use-accent);
+  color: #20252b;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.how-to-use__step-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.how-to-use__step-title {
+  margin: 0 0 4px;
+  color: #20252b;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.how-to-use__step-description {
+  margin: 0;
+  color: #20252b;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* DID YOU KNOW */
+
+.how-to-use__note {
+  margin-top: 28px;
+  overflow: hidden;
+  border: 1px solid var(--how-to-use-note-border);
+  border-radius: 14px;
+  background: var(--how-to-use-note-background);
+}
+
+.how-to-use__note summary {
+  list-style: none;
+}
+
+.how-to-use__note summary::-webkit-details-marker {
+  display: none;
+}
+
+.how-to-use__note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 47px;
+  padding: 0 16px;
+  cursor: pointer;
+  color: #20252b;
+}
+
+.how-to-use__note-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.how-to-use__note-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.how-to-use__note-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.how-to-use__note:not([open]) .how-to-use__note-arrow {
+  transform: rotate(180deg);
+}
+
+.how-to-use__note-content {
+  padding: 14px 17px 18px;
+  border-top: 1px solid var(--how-to-use-note-border);
+  color: #20252b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.how-to-use__note-content p {
+  margin: 0;
+}
+
+/* RIGHT IMAGE */
+
+.how-to-use__media {
+  width: 100%;
+}
+
+.how-to-use__image-wrapper,
+.how-to-use__image-placeholder {
+  width: 100%;
+  min-height: 640px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dedede;
+}
+
+.how-to-use__image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 640px;
+  object-fit: cover;
+}
+
+.how-to-use__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: #20252b;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* TABLET */
+
+@media screen and (max-width: 1000px) {
+  .how-to-use {
+    padding: 56px 20px 40px;
+  }
+
+  .how-to-use__container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .how-to-use__media {
+    order: -1;
+  }
+
+  .how-to-use__image-wrapper,
+  .how-to-use__image-placeholder {
+    min-height: 420px;
+  }
+
+  .how-to-use__image-wrapper img {
+    min-height: 420px;
+  }
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 600px) {
+  .how-to-use {
+    padding: 44px 16px 36px;
+  }
+
+  .how-to-use__container {
+    gap: 26px;
+  }
+
+  .how-to-use__eyebrow {
+    font-size: 12px;
+  }
+
+  .how-to-use__heading {
+    font-size: 31px;
+    letter-spacing: -0.8px;
+  }
+
+  .how-to-use__description {
+    margin-top: 14px;
+    font-size: 15px;
+  }
+
+  .how-to-use__steps {
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .how-to-use__step {
+    min-height: 86px;
+    padding: 12px;
+    border-radius: 13px;
+  }
+
+  .how-to-use__step-number {
+    flex-basis: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .how-to-use__step-title {
+    font-size: 14px;
+  }
+
+  .how-to-use__step-description {
+    font-size: 13px;
+  }
+
+  .how-to-use__note {
+    margin-top: 20px;
+  }
+
+  .how-to-use__note-title {
+    font-size: 14px;
+  }
+
+  .how-to-use__note-content {
+    font-size: 14px;
+  }
+
+  .how-to-use__image-wrapper,
+  .how-to-use__image-placeholder {
+    min-height: 350px;
+    border-radius: 16px;
+  }
+
+  .how-to-use__image-wrapper img {
+    min-height: 350px;
+  }
+}

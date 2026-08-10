@@ -388,7 +388,6 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p>I didn't know how these patches work, but <strong>they are amazing.</strong> I used to get hungover every time I drank, even when I only had a drink or two. <strong>I'll never drink without a patch again,</strong> with every penny.</p>",
-            "customer_image": "shopify://shop_images/model-with-leather-jacket-over-shoulders.jpg",
             "customer_name": "Jennifer"
           }
         },
@@ -397,7 +396,6 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p>Husband and I both in our 40s, tried these for a big party event. <strong>Woke up feeling great, these patches are very effective!</strong></p>",
-            "customer_image": "shopify://shop_images/model-in-neutral-colors-by-window.jpg",
             "customer_name": "Johanna"
           }
         },
@@ -406,7 +404,6 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p><strong>This product really works.</strong> Drank a fifth of tequila the night before and <strong>no hangover or symptoms whatever.</strong> Good and bad. lmao. But it works!</p>",
-            "customer_image": "shopify://shop_images/woman-in-park-afternoon.jpeg",
             "customer_name": "Markus"
           }
         }
@@ -423,7 +420,56 @@
         "stars": "★★★★★",
         "rating": "4.8",
         "review_count": "stars from 500,000+ reviews",
-        "background_color": "#FFFFFF"
+        "background_color": "#ffffff"
+      }
+    },
+    "how_to_use_VAb8Ja": {
+      "type": "how-to-use",
+      "blocks": {
+        "step_fMcBcg": {
+          "type": "step",
+          "settings": {
+            "number": "1",
+            "title": "Apply Before Drinking",
+            "description": "Place the patch on clean, dry skin — inner arm or shoulder works great. It's gentle, waterproof, and stays put all day and night."
+          }
+        },
+        "step_yahyRp": {
+          "type": "step",
+          "settings": {
+            "number": "2",
+            "title": "Absorb For Hours",
+            "description": "While you drink, nutrients absorb transdermally straight into your bloodstream — no stomach acid, no waste."
+          }
+        },
+        "step_UWQwrB": {
+          "type": "step",
+          "settings": {
+            "number": "3",
+            "title": "Wake Up Refreshed",
+            "description": "Peel it off in the morning and go. No headache fog, no wasted day. Just you, feeling like yourself."
+          }
+        }
+      },
+      "block_order": [
+        "step_fMcBcg",
+        "step_yahyRp",
+        "step_UWQwrB"
+      ],
+      "name": "How To Use Party Patches",
+      "settings": {
+        "eyebrow": "HOW IT WORKS",
+        "heading": "How To Use Party Patches",
+        "description": "<p>Three steps. No pills to remember. No powders to mix. Just peel, stick, and wake up winning.</p>",
+        "image_placeholder": "Annotated image of the patch",
+        "note_icon": "💊",
+        "note_title": "Did you know?",
+        "note_content": "<p>Swallowing a pill? Only ~10% of nutrients reach your bloodstream. Our transdermal patch bypasses digestion entirely for 100% absorption — with zero stomach irritation.</p>",
+        "note_open": true,
+        "background_color": "#ffffff",
+        "accent_color": "#78dce8",
+        "note_background_color": "#fff7df",
+        "note_border_color": "#f4bd3f"
       }
     }
   },
@@ -434,6 +480,7 @@
     "pack_collection_Ugyn6G",
     "faq_MDzFrb",
     "vitamin_powerhouse_ABC123",
-    "trusted_by_millions_zt77XK"
+    "trusted_by_millions_zt77XK",
+    "how_to_use_VAb8Ja"
   ]
 }

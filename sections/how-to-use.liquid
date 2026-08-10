@@ -1,0 +1,291 @@
+{{ 'how-to-use.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="how-to-use"
+  style="
+    --how-to-use-background: {{ section.settings.background_color }};
+    --how-to-use-accent: {{ section.settings.accent_color }};
+    --how-to-use-note-background: {{ section.settings.note_background_color }};
+    --how-to-use-note-border: {{ section.settings.note_border_color }};
+  "
+>
+  <div class="how-to-use__container">
+
+    <div class="how-to-use__content">
+
+      {% if section.settings.eyebrow != blank %}
+        <p class="how-to-use__eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="how-to-use__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="how-to-use__description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <div class="how-to-use__steps">
+
+          {% for block in section.blocks %}
+            {% render 'vitamin-powerhouse-card', block: block %}
+          {% endfor %}
+
+        </div>
+      {% endif %}
+
+      {% if section.settings.note_title != blank or section.settings.note_content != blank %}
+        <details
+          class="how-to-use__note"
+          {% if section.settings.note_open %}
+            open
+          {% endif %}
+        >
+
+          <summary class="how-to-use__note-header">
+
+            <span class="how-to-use__note-title">
+
+              {% if section.settings.note_icon != blank %}
+                <span class="how-to-use__note-icon">
+                  {{ section.settings.note_icon }}
+                </span>
+              {% endif %}
+
+              {% if section.settings.note_title != blank %}
+                {{ section.settings.note_title }}
+              {% endif %}
+
+            </span>
+
+            <span class="how-to-use__note-arrow" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 5.5L7 9.5L11 5.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+
+          </summary>
+
+          {% if section.settings.note_content != blank %}
+            <div class="how-to-use__note-content">
+              {{ section.settings.note_content }}
+            </div>
+          {% endif %}
+
+        </details>
+      {% endif %}
+
+    </div>
+
+    <div class="how-to-use__media">
+
+      {% if section.settings.image != blank %}
+
+        <div class="how-to-use__image-wrapper">
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              widths: '500, 700, 900, 1200',
+              sizes: '(max-width: 767px) 100vw, 50vw',
+              alt: section.settings.image.alt
+          }}
+        </div>
+
+      {% else %}
+
+        <div class="how-to-use__image-placeholder">
+          <span>
+            {{ section.settings.image_placeholder }}
+          </span>
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How To Use Party Patches",
+  "tag": "section",
+  "class": "how-to-use-section",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "HOW IT WORKS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How To Use Party Patches"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Three steps. No pills to remember. No powders to mix. Just peel, stick, and wake up winning.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right-side image"
+    },
+    {
+      "type": "text",
+      "id": "image_placeholder",
+      "label": "Image placeholder text",
+      "default": "Annotated image of the patch"
+    },
+    {
+      "type": "text",
+      "id": "note_icon",
+      "label": "Did you know icon",
+      "default": "💊"
+    },
+    {
+      "type": "text",
+      "id": "note_title",
+      "label": "Did you know title",
+      "default": "Did you know?"
+    },
+    {
+      "type": "richtext",
+      "id": "note_content",
+      "label": "Did you know content",
+      "default": "<p>Swallowing a pill? Only ~10% of nutrients reach your bloodstream. Our transdermal patch bypasses digestion entirely for 100% absorption — with zero stomach irritation.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "note_open",
+      "label": "Open information box by default",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Step number color",
+      "default": "#78DCE8"
+    },
+    {
+      "type": "color",
+      "id": "note_background_color",
+      "label": "Information box background",
+      "default": "#FFF7DF"
+    },
+    {
+      "type": "color",
+      "id": "note_border_color",
+      "label": "Information box border",
+      "default": "#F4BD3F"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Apply Before Drinking"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Step description",
+          "default": "<p>Place the patch on clean, dry skin — inner arm or shoulder works great. It's gentle, waterproof, and stays put all day and night.</p>"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "How To Use Party Patches",
+
+      "settings": {
+        "eyebrow": "HOW IT WORKS",
+        "heading": "How To Use Party Patches",
+        "description": "<p>Three steps. No pills to remember. No powders to mix. Just peel, stick, and wake up winning.</p>",
+        "image_placeholder": "Annotated image of the patch",
+        "note_icon": "💊",
+        "note_title": "Did you know?",
+        "note_content": "<p>Swallowing a pill? Only ~10% of nutrients reach your bloodstream. Our transdermal patch bypasses digestion entirely for 100% absorption — with zero stomach irritation.</p>",
+        "note_open": true,
+        "background_color": "#FFFFFF",
+        "accent_color": "#78DCE8",
+        "note_background_color": "#FFF7DF",
+        "note_border_color": "#F4BD3F"
+      },
+
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "number": "1",
+            "title": "Apply Before Drinking",
+            "text": "<p>Place the patch on clean, dry skin — inner arm or shoulder works great. It's gentle, waterproof, and stays put all day and night.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "2",
+            "title": "Absorb For Hours",
+            "text": "<p>While you drink, nutrients absorb transdermally straight into your bloodstream — no stomach acid, no waste.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "3",
+            "title": "Wake Up Refreshed",
+            "text": "<p>Peel it off in the morning and go. No headache fog, no wasted day. Just you, feeling like yourself.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
