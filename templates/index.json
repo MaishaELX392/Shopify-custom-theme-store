@@ -269,59 +269,6 @@
       }
     },
 
-    "vitamin_powerhouse_ABC123": {
-      "type": "vitamin-powerhouse",
-      "blocks": {
-        "ingredient_B1": {
-          "type": "ingredient",
-          "settings": {
-            "icon": "⚡",
-            "title": "Vitamin B1 (Thiamine)",
-            "text": "Helps process alcohol toxins and supports nervous system recovery"
-          }
-        },
-        "ingredient_B5": {
-          "type": "ingredient",
-          "settings": {
-            "icon": "🛡️",
-            "title": "Vitamin B5",
-            "text": "Converts alcohol to energy and supports your immune response"
-          }
-        },
-        "ingredient_B6": {
-          "type": "ingredient",
-          "settings": {
-            "icon": "🧠",
-            "title": "Vitamin B6",
-            "text": "Protects your immune system and cuts through next-day brain fog"
-          }
-        },
-        "ingredient_taurine": {
-          "type": "ingredient",
-          "settings": {
-            "icon": "💪",
-            "title": "Taurine",
-            "text": "Balances electrolytes and fights nausea so you feel human again"
-          }
-        }
-      },
-      "block_order": [
-        "ingredient_B1",
-        "ingredient_B5",
-        "ingredient_B6",
-        "ingredient_taurine"
-      ],
-      "name": "Vitamin Powerhouse",
-      "settings": {
-        "eyebrow": "WHAT'S INSIDE",
-        "heading": "A Vitamin Powerhouse",
-        "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
-        "background_color": "#DDF8FB",
-        "button_text": "Learn More About the Science",
-        "button_link": ""
-      }
-    },
-
     "faq_MDzFrb": {
       "type": "faq",
       "blocks": {
@@ -382,7 +329,56 @@
         "heading": "Frequently Asked Questions",
         "background_color": "#FFFFFF"
       }
+    },
+"vitamin_powerhouse_ABC123": {
+  "type": "vitamin-powerhouse",
+  "blocks": {
+    "ingredient_B1": {
+      "type": "ingredient",
+      "settings": {
+        "title": "Vitamin B1 (Thiamine)",
+        "text": "Helps process alcohol toxins and supports nervous system recovery"
+      }
+    },
+    "ingredient_B5": {
+      "type": "ingredient",
+      "settings": {
+        "title": "Vitamin B5",
+        "text": "Converts alcohol to energy and supports your immune response"
+      }
+    },
+    "ingredient_B6": {
+      "type": "ingredient",
+      "settings": {
+        "title": "Vitamin B6",
+        "text": "Protects your immune system and cuts through next-day brain fog"
+      }
+    },
+    "ingredient_taurine": {
+      "type": "ingredient",
+      "settings": {
+        "title": "Taurine",
+        "text": "Balances electrolytes and fights nausea so you feel human again"
+      }
     }
+  },
+  "block_order": [
+    "ingredient_B1",
+    "ingredient_B5",
+    "ingredient_B6",
+    "ingredient_taurine"
+  ],
+  "name": "Vitamin Powerhouse",
+  "settings": {
+    "eyebrow": "WHAT'S INSIDE",
+    "heading": "A Vitamin Powerhouse",
+    "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
+    "background_color": "#DDF8FB",
+    "button_text": "Learn More About the Science",
+    "button_link": ""
+  }
+}
+
   },
 
   "order": [
@@ -390,7 +386,8 @@
     "chart_XYZ123",
     "comments_bUPVEW",
     "pack_collection_Ugyn6G",
-    "vitamin_powerhouse_ABC123",
-    "faq_MDzFrb"
+      "faq_MDzFrb",
+    "vitamin_powerhouse_ABC123"
+   
   ]
 }
