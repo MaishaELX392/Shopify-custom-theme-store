@@ -1,6 +1,9 @@
 {{ 'faq.css' | asset_url | stylesheet_tag }}
 
-<section class="faq-section">
+<section
+  class="faq-section"
+  style="background-color: {{ section.settings.background_color }};"
+>
   <div class="faq-section__container">
 
     {% if section.settings.eyebrow != blank %}
@@ -22,13 +25,19 @@
           <details
             class="faq-item"
             {{ block.shopify_attributes }}
+            data-faq-item="{{ block.id }}"
           >
+
             <summary class="faq-item__question">
-              <span>
+
+              <span class="faq-item__question-text">
                 {{ block.settings.question }}
               </span>
 
-              <span class="faq-item__icon" aria-hidden="true">
+              <span
+                class="faq-item__icon"
+                aria-hidden="true"
+              >
                 <svg
                   width="16"
                   height="16"
@@ -45,11 +54,75 @@
                   />
                 </svg>
               </span>
+
             </summary>
 
-            <div class="faq-item__answer">
-              {{ block.settings.answer }}
-            </div>
+            {% if section.settings.enable_comments %}
+              <div class="faq-comments">
+
+                <h3 class="faq-comments__title">
+                  {{ section.settings.comments_heading }}
+                </h3>
+
+                <form
+                  class="faq-comments__form"
+                  data-comment-form
+                  novalidate
+                >
+
+                  <div class="faq-comments__field">
+                    <label for="faq-name-{{ block.id }}">
+                      Name
+                    </label>
+
+                    <input
+                      id="faq-name-{{ block.id }}"
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      autocomplete="name"
+                    >
+                  </div>
+
+                  <div class="faq-comments__field">
+                    <label for="faq-comment-{{ block.id }}">
+                      Comment
+                    </label>
+
+                    <textarea
+                      id="faq-comment-{{ block.id }}"
+                      name="comment"
+                      placeholder="Write your comment..."
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="faq-comments__submit"
+                  >
+                    {{ section.settings.submit_text }}
+                  </button>
+
+                  <p
+                    class="faq-comments__message"
+                    data-comment-message
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+
+                </form>
+
+                <div
+                  class="faq-comments__list"
+                  data-comments-list
+                ></div>
+
+              </div>
+            {% endif %}
+
           </details>
         {% endfor %}
 
@@ -62,41 +135,54 @@
 {% schema %}
 {
   "name": "FAQ",
-  "max_blocks": 20,
   "settings": [
-    {
-      "type": "header",
-      "content": "Section content"
-    },
     {
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "GOT QUESTIONS?"
+      "default": "FAQ"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_comments",
+      "label": "Enable comments",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "comments_heading",
+      "label": "Comments heading",
+      "default": "Comments"
+    },
+    {
+      "type": "text",
+      "id": "submit_text",
+      "label": "Submit button text",
+      "default": "Post Comment"
     }
   ],
   "blocks": [
     {
-      "type": "faq",
-      "name": "FAQ",
+      "type": "question",
+      "name": "Question",
       "settings": [
         {
           "type": "text",
           "id": "question",
           "label": "Question",
-          "default": "How long does it take for the patch to work?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer",
-          "label": "Answer",
-          "default": "<p>Enter your answer here.</p>"
+          "default": "What is Party Patch?"
         }
       ]
     }
@@ -106,45 +192,27 @@
       "name": "FAQ",
       "blocks": [
         {
-          "type": "faq",
+          "type": "question",
           "settings": {
-            "question": "How long does it take for the patch to work?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "What is Party Patch?"
           }
         },
         {
-          "type": "faq",
+          "type": "question",
           "settings": {
-            "question": "Can I use multiple patches at once?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "How does Party Patch work?"
           }
         },
         {
-          "type": "faq",
+          "type": "question",
           "settings": {
-            "question": "Are there any side effects?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "How long should I wear it?"
           }
         },
         {
-          "type": "faq",
+          "type": "question",
           "settings": {
-            "question": "Will this work if I drink heavily?",
-            "answer": "<p>Enter your answer here.</p>"
-          }
-        },
-        {
-          "type": "faq",
-          "settings": {
-            "question": "Can I shower with the patch on?",
-            "answer": "<p>Enter your answer here.</p>"
-          }
-        },
-        {
-          "type": "faq",
-          "settings": {
-            "question": "What's your return policy?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "Where can I buy Party Patch?"
           }
         }
       ]
