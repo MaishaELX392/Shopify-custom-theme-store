@@ -388,6 +388,7 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p>I didn't know how these patches work, but <strong>they are amazing.</strong> I used to get hungover every time I drank, even when I only had a drink or two. <strong>I'll never drink without a patch again,</strong> with every penny.</p>",
+            "customer_image": "shopify://shop_images/model-with-leather-jacket-over-shoulders.jpg",
             "customer_name": "Jennifer"
           }
         },
@@ -396,6 +397,7 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p>Husband and I both in our 40s, tried these for a big party event. <strong>Woke up feeling great, these patches are very effective!</strong></p>",
+            "customer_image": "shopify://shop_images/model-in-neutral-colors-by-window.jpg",
             "customer_name": "Johanna"
           }
         },
@@ -404,6 +406,7 @@
           "settings": {
             "stars": "★★★★★",
             "review": "<p><strong>This product really works.</strong> Drank a fifth of tequila the night before and <strong>no hangover or symptoms whatever.</strong> Good and bad. lmao. But it works!</p>",
+            "customer_image": "shopify://shop_images/woman-in-park-afternoon.jpeg",
             "customer_name": "Markus"
           }
         }
