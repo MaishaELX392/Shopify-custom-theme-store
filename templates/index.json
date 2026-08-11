@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner_LFhQDB": {
@@ -95,7 +104,6 @@
         "padding_bottom": 60
       }
     },
-
     "chart_XYZ123": {
       "type": "chart",
       "blocks": {
@@ -166,7 +174,6 @@
         "padding_bottom": 80
       }
     },
-
     "comments_bUPVEW": {
       "type": "comments",
       "blocks": {
@@ -225,7 +232,6 @@
         "comments_per_page": 3
       }
     },
-
     "pack_collection_Ugyn6G": {
       "type": "pack-collection",
       "blocks": {
@@ -268,50 +274,43 @@
         "background_color": "#eafeff"
       }
     },
-
     "faq_MDzFrb": {
       "type": "faq",
       "blocks": {
         "faq_ApUX4e": {
           "type": "question",
           "settings": {
-            "question": "How long does it take for the patch to work?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "How long does it take for the patch to work?"
           }
         },
         "faq_CbyByt": {
           "type": "question",
           "settings": {
-            "question": "Can I use multiple patches at once?",
-            "answer": "<p>shopi</p>"
+            "question": "Can I use multiple patches at once?"
           }
         },
         "faq_G7gFRn": {
           "type": "question",
           "settings": {
-            "question": "Are there any side effects?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "Are there any side effects?"
           }
         },
         "faq_rwer7Q": {
           "type": "question",
           "settings": {
-            "question": "Will this work if I drink heavily?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "Will this work if I drink heavily?"
           }
         },
         "faq_eanVRE": {
           "type": "question",
           "settings": {
-            "question": "Can I shower with the patch on?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "Can I shower with the patch on?"
           }
         },
         "faq_tVVNCd": {
           "type": "question",
           "settings": {
-            "question": "What's your return policy?",
-            "answer": "<p>Enter your answer here.</p>"
+            "question": "What's your return policy?"
           }
         }
       },
@@ -327,67 +326,67 @@
       "settings": {
         "eyebrow": "GOT QUESTIONS?",
         "heading": "Frequently Asked Questions",
-        "background_color": "#FFFFFF"
+        "background_color": "#ffffff",
+        "enable_comments": true,
+        "comments_heading": "Comments",
+        "submit_text": "Post Comment"
       }
     },
-"vitamin_powerhouse_ABC123": {
-  "type": "vitamin-powerhouse",
-  "blocks": {
-    "ingredient_B1": {
-      "type": "ingredient",
+    "vitamin_powerhouse_ABC123": {
+      "type": "vitamin-powerhouse",
+      "blocks": {
+        "ingredient_B1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B1 (Thiamine)",
+            "text": "Helps process alcohol toxins and supports nervous system recovery"
+          }
+        },
+        "ingredient_B5": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B5",
+            "text": "Converts alcohol to energy and supports your immune response"
+          }
+        },
+        "ingredient_B6": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B6",
+            "text": "Protects your immune system and cuts through next-day brain fog"
+          }
+        },
+        "ingredient_taurine": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Taurine",
+            "text": "Balances electrolytes and fights nausea so you feel human again"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_B1",
+        "ingredient_B5",
+        "ingredient_B6",
+        "ingredient_taurine"
+      ],
+      "name": "Vitamin Powerhouse",
       "settings": {
-        "title": "Vitamin B1 (Thiamine)",
-        "text": "Helps process alcohol toxins and supports nervous system recovery"
-      }
-    },
-    "ingredient_B5": {
-      "type": "ingredient",
-      "settings": {
-        "title": "Vitamin B5",
-        "text": "Converts alcohol to energy and supports your immune response"
-      }
-    },
-    "ingredient_B6": {
-      "type": "ingredient",
-      "settings": {
-        "title": "Vitamin B6",
-        "text": "Protects your immune system and cuts through next-day brain fog"
-      }
-    },
-    "ingredient_taurine": {
-      "type": "ingredient",
-      "settings": {
-        "title": "Taurine",
-        "text": "Balances electrolytes and fights nausea so you feel human again"
+        "eyebrow": "WHAT'S INSIDE",
+        "heading": "A Vitamin Powerhouse",
+        "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
+        "background_color": "#ddf8fb",
+        "button_text": "Learn More About the Science",
+        "button_link": ""
       }
     }
   },
-  "block_order": [
-    "ingredient_B1",
-    "ingredient_B5",
-    "ingredient_B6",
-    "ingredient_taurine"
-  ],
-  "name": "Vitamin Powerhouse",
-  "settings": {
-    "eyebrow": "WHAT'S INSIDE",
-    "heading": "A Vitamin Powerhouse",
-    "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
-    "background_color": "#DDF8FB",
-    "button_text": "Learn More About the Science",
-    "button_link": ""
-  }
-}
-
-  },
-
   "order": [
     "hero_banner_LFhQDB",
     "chart_XYZ123",
     "comments_bUPVEW",
     "pack_collection_Ugyn6G",
-      "faq_MDzFrb",
+    "faq_MDzFrb",
     "vitamin_powerhouse_ABC123"
-   
   ]
 }
