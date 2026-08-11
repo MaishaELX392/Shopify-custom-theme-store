@@ -332,55 +332,97 @@
         "submit_text": "Post Comment"
       }
     },
-"vitamin_powerhouse_ABC123": {
-  "type": "vitamin-powerhouse",
-  "blocks": {
-    "ingredient_B1": {
-      "type": "ingredient",
+    "vitamin_powerhouse_ABC123": {
+      "type": "vitamin-powerhouse",
+      "blocks": {
+        "ingredient_B1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B1 (Thiamine)",
+            "text": "Helps process alcohol toxins and supports nervous system recovery"
+          }
+        },
+        "ingredient_B5": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B5",
+            "text": "Converts alcohol to energy and supports your immune response"
+          }
+        },
+        "ingredient_B6": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B6",
+            "text": "Protects your immune system and cuts through next-day brain fog"
+          }
+        },
+        "ingredient_taurine": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Taurine",
+            "text": "Balances electrolytes and fights nausea so you feel human again"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_B1",
+        "ingredient_B5",
+        "ingredient_B6",
+        "ingredient_taurine"
+      ],
+      "name": "Vitamin Powerhouse",
       "settings": {
-        "title": "Vitamin B1 (Thiamine)",
-        "text": "Helps process alcohol toxins and supports nervous system recovery"
+        "eyebrow": "WHAT'S INSIDE",
+        "heading": "A Vitamin Powerhouse",
+        "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
+        "background_color": "#ddf8fb",
+        "button_text": "Learn More About the Science",
+        "button_link": ""
       }
     },
-    "ingredient_B5": {
-      "type": "ingredient",
+    "trusted_by_millions_zt77XK": {
+      "type": "trusted-by-millions",
+      "blocks": {
+        "testimonial_3HFdq9": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p>I didn't know how these patches work, but <strong>they are amazing.</strong> I used to get hungover every time I drank, even when I only had a drink or two. <strong>I'll never drink without a patch again,</strong> with every penny.</p>",
+            "customer_name": "Jennifer"
+          }
+        },
+        "testimonial_myfNn9": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p>Husband and I both in our 40s, tried these for a big party event. <strong>Woke up feeling great, these patches are very effective!</strong></p>",
+            "customer_name": "Johanna"
+          }
+        },
+        "testimonial_h4LejC": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "review": "<p><strong>This product really works.</strong> Drank a fifth of tequila the night before and <strong>no hangover or symptoms whatever.</strong> Good and bad. lmao. But it works!</p>",
+            "customer_name": "Markus"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3HFdq9",
+        "testimonial_myfNn9",
+        "testimonial_h4LejC"
+      ],
+      "name": "Trusted by Millio",
       "settings": {
-        "title": "Vitamin B5",
-        "text": "Converts alcohol to energy and supports your immune response"
-      }
-    },
-    "ingredient_B6": {
-      "type": "ingredient",
-      "settings": {
-        "title": "Vitamin B6",
-        "text": "Protects your immune system and cuts through next-day brain fog"
-      }
-    },
-    "ingredient_taurine": {
-      "type": "ingredient",
-      "settings": {
-        "title": "Taurine",
-        "text": "Balances electrolytes and fights nausea so you feel human again"
+        "eyebrow": "#WINTOMORROW WITH PARTY PATCH",
+        "heading": "Trusted by Millions",
+        "stars": "★★★★★",
+        "rating": "4.8",
+        "review_count": "stars from 500,000+ reviews",
+        "background_color": "#ffffff"
       }
     }
-  },
-  "block_order": [
-    "ingredient_B1",
-    "ingredient_B5",
-    "ingredient_B6",
-    "ingredient_taurine"
-  ],
-  "name": "Vitamin Powerhouse",
-  "settings": {
-    "eyebrow": "WHAT'S INSIDE",
-    "heading": "A Vitamin Powerhouse",
-    "description": "<p>Powerful ingredients. Zero nonsense. Every compound targets a specific part of how alcohol affects your body.</p>",
-    "background_color": "#DDF8FB",
-    "button_text": "Learn More About the Science",
-    "button_link": ""
-  }
-}
-
   },
   "order": [
     "hero_banner_LFhQDB",
@@ -388,6 +430,7 @@
     "comments_bUPVEW",
     "pack_collection_Ugyn6G",
     "faq_MDzFrb",
-    "vitamin_powerhouse_ABC123"
+    "vitamin_powerhouse_ABC123",
+    "trusted_by_millions_zt77XK"
   ]
 }
